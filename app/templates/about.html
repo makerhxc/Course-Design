@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Blog - The best blog</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{{ url_for('static',filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static',filename='css/clean-blog.min.css')}}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('main.index') }}">Admin主页</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.index') }}">主页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.about') }}">关于我们</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.post') }}">博客</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('main.contact') }}">和我们联系</a>
+          </li>
+          <li class="nav-item">
+            {% if current_user.is_authenticated %}
+                <li><a class="nav-link" href="{{ url_for('auth.logout') }}">退出</a></li>
+            {% else %}
+                <li><a class="nav-link" href="{{ url_for('auth.login') }}">登录</a></li>
+            {% endif %}
+          </li>
+             </ul>
+      </div>
+    </div>
+</nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ url_for('static',filename='images/about-bg.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>关于我们</h1>
+            <span class="subheading">简介</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <p>    江西理工大学（Jiangxi University of Science and Technology），简称“江理”，
+                创办于1958年，原名江西冶金学院，1988年更名为南方冶金学院， 2004年更名为江西理工大学。
+                学校曾先后隶属于冶金工业部、中国有色金属工业总公司，2013年成为江西省人民政府、
+                工业和信息化部、教育部共建高校。</p>
+            <p>江西理工大学信息工程学院成立于2001年4月，是由原自动化系（部分）和学校计算中心组建而成。
+                随着信息技术的迅速发展以及社会对IT人才需求的急剧上升，信息工程学院的办学规模不断扩大，
+                现已成为江西省IT行业人才培养和科技创新的重要基地之一。其中计算机科学与技术专业创办于1984年，
+                是江西省内较早从事计算机科学与技术研究的高校之一，先后获批计算机应用技术“十一五”和“十二五”省级重点学科，
+                是江西省特色专业和江西省品牌专业。
+            </p>
+            <p>建院十几年来以培养素质高、基础扎实、适应面宽、创新能力强的高级人才为目标，形成了教学特色鲜明、
+                科研成果突出、学生培养质量高的办学特色，为国家输送了7500余名专业理论知识扎实、实践动手能力强、
+                切合市场需要的信息技术人才，深受用人单位的好评。</p>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
+                </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-qq fa-stack-1x fa-inverse"></i>
+                </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-steam fa-stack-1x fa-inverse"></i>
+                </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github-alt fa-stack-1x fa-inverse"></i>
+                </span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; POWERED BY ADMIN ALL RIGHTS RESERVED</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+<!-- Custom scripts for this template -->
+  <script src="{{ url_for('static',filename='js/clean-blog.min.js')}}"></script>
+
+</body>
+
+</html>
